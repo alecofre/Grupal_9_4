@@ -33,4 +33,9 @@
     <% end %>
   </p>
 
+  <p>
+    <% if articulo.fotos.attached? %>
+        <%= image_tag articulo.fotos.variant(resize_to_limit: [150, 150]) %>
+    <% end %>
+  </p>
 </div>

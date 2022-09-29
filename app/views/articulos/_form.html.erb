@@ -1,0 +1,52 @@
+<%= form_with(model: articulo) do |form| %>
+  <% if articulo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(articulo.errors.count, "error") %> prohibited this articulo from being saved:</h2>
+
+      <ul>
+        <% articulo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nombre, style: "display: block" %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div>
+    <%= form.label :descripcion, style: "display: block" %>
+    <%= form.text_field :descripcion %>
+  </div>
+
+  <div>
+    <%= form.label :condicion, style: "display: block" %>
+    <%= form.text_field :condicion %>
+  </div>
+
+  <div>
+    <%= form.label :precio, style: "display: block" %>
+    <%= form.number_field :precio %>
+  </div>
+
+  <div>
+    <%= form.label :marca_id, style: "display: block" %>
+    <%= form.collection_select :marca_id, @marcas, :id, :nombre  %>
+  </div>
+
+  <div>
+    <%= form.label :tags %>
+    <%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
+  </div>
+
+  <div>
+    <%#= form.label :user_id, style: "display: block" %>
+    <%= form.hidden_field :user_id, value:current_user.id.to_i %>
+  </div> 
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

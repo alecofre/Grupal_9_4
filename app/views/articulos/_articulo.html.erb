@@ -1,0 +1,36 @@
+<div id="<%= dom_id articulo %>">
+  <p>
+    <strong>Nombre:</strong>
+    <%= articulo.nombre %>
+  </p>
+
+  <p>
+    <strong>Descripcion:</strong>
+    <%= articulo.descripcion %>
+  </p>
+
+  <p>
+    <strong>Condicion:</strong>
+    <%= articulo.condicion %>
+  </p>
+
+  <p>
+    <strong>Precio:</strong>
+    <%= articulo.precio %>
+  </p>
+
+  <p>
+    <strong>Marca:</strong>
+    <%= articulo.marca.nombre %>
+  </p>
+
+  <p>
+    <strong>Tags:</strong>
+    <% articulo.tags.each do |t| %>
+      <span>
+        <%= t.name %>
+      </span>
+    <% end %>
+  </p>
+
+</div>
